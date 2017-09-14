@@ -1,4 +1,4 @@
-package com.dagger.example.dagger.component;
+package com.dagger.example.dagger.subcomponent;
 
 import com.dagger.example.dagger.module.EmployModule;
 import com.dagger.example.dagger.scope.ActivityScope;

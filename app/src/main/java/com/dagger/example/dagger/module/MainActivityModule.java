@@ -3,7 +3,7 @@ package com.dagger.example.dagger.module;
 
 import android.app.Activity;
 
-import com.dagger.example.dagger.component.MainActivitySubComponent;
+import com.dagger.example.dagger.subcomponent.MainActivitySubComponent;
 import com.dagger.example.view.MainActivity;
 
 import dagger.Binds;
