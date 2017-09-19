@@ -19,6 +19,14 @@ android {
     }
 }
 
+// This is necessary to allow Dagger to generate TestComponent
+android.applicationVariants.all { variant ->
+    if (variant.buildType.name == "debug") {
+        def aptOutputDir = new File(buildDir, "generated/source/apt/${variant.unitTestVariant.dirName}")
+        variant.unitTestVariant.addJavaSourceFoldersToModel(aptOutputDir)
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -26,12 +34,11 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:26+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile("org.mockito:mockito-core:1.9.5", {
-        exclude module: 'hamcrest-core'
-    })
     testCompile 'junit:junit:4.12'
     testCompile "org.robolectric:robolectric:3.4.2"
     testCompile "org.mockito:mockito-core:1.9.5"
+    testCompile 'com.google.dagger:dagger-android-processor:2.11-rc2'
+    testCompile 'com.google.dagger:dagger-compiler:2.11-rc2'
 
     androidTestCompile 'junit:junit:4.12'
     // Dependency Injection

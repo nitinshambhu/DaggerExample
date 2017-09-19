@@ -1,4 +1,4 @@
-package com.dagger.example.dagger.TestModule;
+package com.dagger.example.dagger.component.module;
 
 import com.dagger.example.presenter.MainPresenter;
 
